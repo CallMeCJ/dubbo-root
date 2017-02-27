@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+	<!-- 消费方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="consumer" />
+
+	<!-- 使用zookeeper广播注册中心暴露服务地址 -->
+	<!-- <dubbo:registry protocol="zookeeper" address="192.168.2.176:2181" /> -->
+
+	<!-- 采用直连，不使用注册中心 -->
+	<dubbo:registry address="N/A" />
+	
+	<dubbo:reference id="controlService"
+		interface="com.cjzheng.dubbo.api.IControlService"
+		url="dubbo://127.0.0.1:20880" timeout="80000" retries="0" />
+</beans>
