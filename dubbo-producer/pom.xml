@@ -53,7 +53,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>consumer</finalName>
+		<finalName>producer</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
